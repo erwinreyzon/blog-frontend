@@ -11,6 +11,8 @@
     <router-link to="/login">Login</router-link>
     |
     <router-link to="/posts">Posts</router-link>
+    |
+    <router-link to="/posts/new">New Posts</router-link>
   </nav>
   <router-view />
 </template>
