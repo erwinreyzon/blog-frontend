@@ -13,6 +13,14 @@ export default {
       console.log(response.data);
     });
   },
+  methods: {
+    destroyPost: function (post) {
+      axios.delete("http://localhost:3000/posts/" + post.id).then((response) => {
+        console.log("Post Deleted", response);
+        this.$router.push("/posts");
+      });
+    },
+  },
 };
 </script>
 
@@ -20,6 +28,8 @@ export default {
   <h2>Post Show</h2>
   <p>{{ post }}</p>
   <a v-bind:href="`/posts/${post.id}/edit`">Edit</a>
-  <div></div>
+  <br />
+  <button v-on:click="destroyPost(post)">Destroy Post</button>
+  <br />
   <a href="/posts">Home</a>
 </template>
