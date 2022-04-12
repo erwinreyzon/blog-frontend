@@ -1,0 +1,23 @@
+<script>
+import axios from "axios";
+
+export default {
+  data: function () {
+    return {
+      post: {},
+    };
+  },
+  created: function () {
+    axios.get("/posts/1.json").then((response) => {
+      this.post = response.data;
+      console.log(response.data);
+    });
+  },
+};
+</script>
+
+<template>
+  <h2>Post Show</h2>
+  <p>{{ post }}</p>
+  <a href="/posts">Home</a>
+</template>
