@@ -49,7 +49,7 @@ const routes = [
   },
   {
     path: "/posts/new",
-    name: "post",
+    name: "new",
     component: PostNew,
   },
   {
