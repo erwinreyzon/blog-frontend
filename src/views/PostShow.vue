@@ -19,5 +19,7 @@ export default {
 <template>
   <h2>Post Show</h2>
   <p>{{ post }}</p>
+  <a v-bind:href="`/posts/${post.id}/edit`">Edit</a>
+  <div></div>
   <a href="/posts">Home</a>
 </template>
