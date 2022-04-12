@@ -23,7 +23,7 @@ export default {
       <p>{{ post.title }}</p>
       <p>{{ post.body }}</p>
       <p>{{ post.image }}</p>
-      <a href="/posts/1">Show More Info</a>
+      <a v-bind:href="`/posts/${post.id}`">Show More Info</a>
     </div>
   </div>
 </template>
