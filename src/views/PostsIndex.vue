@@ -21,8 +21,8 @@ export default {
     <h1>Posts</h1>
     <div v-for="post in posts" v-bind:key="post.id">
       <p>{{ post.title }}</p>
-      <p>{{ post.body }}</p>
-      <img :src="post.image" :alt="post.title" />
+      <!-- <p>{{ post.body }}</p>
+      <img :src="post.image" :alt="post.title" /> -->
       <br />
       <a v-bind:href="`/posts/${post.id}`">Show More Info</a>
     </div>

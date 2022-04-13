@@ -74,7 +74,9 @@
     |
     <router-link to="/posts/new">New Posts</router-link>
   </nav>
-  <router-view />
+  <div class="container">
+    <router-view />
+  </div>
 </template>
 
 <style>

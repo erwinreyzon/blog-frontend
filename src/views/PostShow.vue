@@ -26,7 +26,10 @@ export default {
 
 <template>
   <h2>Post Show</h2>
-  <p>{{ post }}</p>
+  <p>{{ post.title }}</p>
+  <p>{{ post.body }}</p>
+  <img :src="post.image" :alt="post.title" />
+  <br />
   <a v-bind:href="`/posts/${post.id}/edit`">Edit</a>
   <br />
   <button v-on:click="destroyPost(post)">Destroy Post</button>
