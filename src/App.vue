@@ -77,4 +77,12 @@
   <router-view />
 </template>
 
-<style></style>
+<style>
+body {
+  background-image: url("/src/assets/organic-tiles.webp");
+}
+
+#app {
+  font-family: Trebuchet MS, Lucida Grande, Lucida Sans Unicode, Lucida Sans, Tahoma, sans-serif;
+}
+</style>
