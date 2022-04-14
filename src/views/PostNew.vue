@@ -6,6 +6,7 @@ export default {
     return {
       newPostParams: { body: "" },
       errors: [],
+      status: "",
     };
   },
   methods: {
@@ -17,7 +18,7 @@ export default {
         .then((response) => {
           console.log("Success", response.data);
         })
-        .catch((error) => console.log(error.response));
+        .catch((error) => console.log(error.response.status, error.response.statusText));
     },
   },
 };
@@ -25,6 +26,7 @@ export default {
 
 <template>
   <div class="post-new">
+    <img v-if="status" :src="`https://http.cat/${status}`" />
     <form v-on:submit.prevent="createPost()">
       <h2>Please Input a New Post</h2>
       <div>

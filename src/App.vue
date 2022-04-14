@@ -1,3 +1,18 @@
+<script>
+export default {
+  data: function () {
+    return {
+      isLoggedIn: !!localStorage.jwt,
+    };
+  },
+  watch: {
+    $route: function () {
+      this.isLoggedIn = !!localStorage.jwt;
+    },
+  },
+};
+</script>
+
 <template>
   <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
     <div class="container-fluid">
@@ -60,19 +75,37 @@
     </div>
   </nav>
   <nav>
-    <router-link to="/">Home</router-link>
+    <span>
+      <router-link to="/">Home</router-link>
+    </span>
     |
-    <router-link to="/about">About</router-link>
+    <span>
+      <router-link to="/about">About</router-link>
+    </span>
     |
-    <router-link to="/test">Test</router-link>
+    <span>
+      <router-link to="/test">Test</router-link>
+    </span>
     |
-    <router-link to="/signup">SignUp</router-link>
+    <span v-if="!isLoggedIn">
+      <router-link to="/signup">SignUp</router-link>
+    </span>
     |
-    <router-link to="/login">Login</router-link>
+    <span v-if="!isLoggedIn">
+      <router-link to="/login">Login</router-link>
+    </span>
     |
-    <router-link to="/posts">Posts</router-link>
+    <span>
+      <router-link to="/posts">Posts</router-link>
+    </span>
     |
-    <router-link to="/posts/new">New Posts</router-link>
+    <span>
+      <router-link to="/posts/new">New Posts</router-link>
+    </span>
+    |
+    <span v-if="isLoggedIn">
+      <router-link to="/logout">Logout</router-link>
+    </span>
   </nav>
   <div class="container">
     <router-view />
