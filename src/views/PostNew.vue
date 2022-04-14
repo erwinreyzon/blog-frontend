@@ -4,7 +4,7 @@ import axios from "axios";
 export default {
   data: function () {
     return {
-      newPostParams: {},
+      newPostParams: { body: "" },
       errors: [],
     };
   },
@@ -35,6 +35,7 @@ export default {
         <div class="form-group">
           Body:
           <input type="text" v-model="newPostParams.body" />
+          <small>{{ 500 - newPostParams.body.length }}Characters Remaining</small>
         </div>
         <div class="form-group">
           Image URL:
