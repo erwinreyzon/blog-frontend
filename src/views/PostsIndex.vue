@@ -33,7 +33,10 @@ export default {
 <template>
   <div class="index">
     <h1>Posts</h1>
-    <input v-model="nameFilter" type="text" />
+    <input v-model="nameFilter" type="text" list="titles" />
+    <datalist id="titles">
+      <option v-for="post in posts" v-bind:key="post.id">{{ post.title }}</option>
+    </datalist>
     <div v-for="post in titleFilter()" v-bind:key="post.id">
       <p>{{ post.title }}</p>
       <!-- <p>{{ post.body }}</p>
