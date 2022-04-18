@@ -26,6 +26,15 @@ export default {
         return lowerTitle.includes(lowerNameFilter);
       });
     },
+    sortTitle: function () {
+      let sortedTitles = this.posts;
+      sortedTitles = sortedTitles.sort((x, y) => {
+        let a = x.title.toLowerCase(),
+          b = y.title.toLowerCase();
+        return a == b ? 0 : a > b ? 1 : -1;
+      });
+      return sortedTitles;
+    },
   },
 };
 </script>
@@ -39,6 +48,7 @@ export default {
     <datalist id="titles">
       <option v-for="post in posts" v-bind:key="post.id">{{ post.title }}</option>
     </datalist>
+    <button v-on:click="sortTitle()">Sort By Title</button>
     <div v-for="post in titleFilter()" v-bind:key="post.id">
       <p>{{ post.title }}</p>
       <!-- <p>{{ post.body }}</p>
