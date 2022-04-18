@@ -6,6 +6,7 @@ export default {
   data: function () {
     return {
       posts: [],
+      nameFilter: "",
     };
   },
   created: function () {
@@ -18,6 +19,13 @@ export default {
     relativeTime: function (date) {
       return moment(date).fromNow();
     },
+    titleFilter: function () {
+      return this.posts.filter((post) => {
+        var lowerNameFilter = this.nameFilter.toLowerCase();
+        var lowerTitle = post.title.toLowerCase();
+        return lowerTitle.includes(lowerNameFilter);
+      });
+    },
   },
 };
 </script>
@@ -25,7 +33,8 @@ export default {
 <template>
   <div class="index">
     <h1>Posts</h1>
-    <div v-for="post in posts" v-bind:key="post.id">
+    <input v-model="nameFilter" type="text" />
+    <div v-for="post in titleFilter()" v-bind:key="post.id">
       <p>{{ post.title }}</p>
       <!-- <p>{{ post.body }}</p>
       <img :src="post.image" :alt="post.title" /> -->
