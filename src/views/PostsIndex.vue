@@ -33,7 +33,9 @@ export default {
 <template>
   <div class="index">
     <h1>Posts</h1>
+    <!-- Search filter by title -->
     <input v-model="nameFilter" type="text" list="titles" />
+    <!-- Gives datalist options for search filter above -->
     <datalist id="titles">
       <option v-for="post in posts" v-bind:key="post.id">{{ post.title }}</option>
     </datalist>
